@@ -1,7 +1,7 @@
 # UASpeech baseline kaldiscript
 
 This is just a basic script for building a GMM-HMM based ASR with kaldi.
-The script is similar to https://github.com/ffxiong/uaspeech with a few differences.
+The script is similar to https://github.com/ffxiong/uaspeech and uses the exact same LM method but a few differences with the acoustic model training.
 
 ###### For example:
   - Included double delta training before applying lda_mlt training.
