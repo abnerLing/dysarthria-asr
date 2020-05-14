@@ -1,4 +1,3 @@
-# UASpeech baseline kaldi script
 ## Note that this repository is not yet complete and I'm still working on it!
 
 This is just a basic script for building a GMM-HMM based ASR with kaldi.
@@ -9,6 +8,7 @@ The script is similar to https://github.com/ffxiong/uaspeech and uses the exact 
   - Speed and tempo augmentation options. 
   - Data preparation using python not bash.
   - Allowed the testing of different context windows.
+  - After tri4 SAT training we re-aligning  with fmllr (feature space maximum likelihood linear regression).
   
   ## Results
   - Given the stochastic nature of the tasks your results may vary.
