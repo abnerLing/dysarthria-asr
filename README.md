@@ -1,6 +1,6 @@
 ## Baseline UAspeech kaldi recipe
 
-This is just a basic script for building a GMM-HMM based ASR with kaldi.
+This is just a basic script for building a GMM-HMM based ASR with kaldi (mostly for my own practice).
 The script is similar to https://github.com/ffxiong/uaspeech and uses the exact same LM method but a few differences with the acoustic model training.
 
 ###### For example:
@@ -56,7 +56,7 @@ ln -s ../wsj/s5/utils .
 [1] F. Xiong, J. Barker, and H. Christensen, "Phonetic Analysis of Dysarthric Speech Tempo and Applications to Robust Personalised Dysarthric Speech Recognition," in IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Brighton, UK, May 2019
 
 
-##### Things to work on
+***Things to work on***
 - Make data augmentation more flexible
 - Allow for speaker independent models
 - Write bash-based script for data prep?
