@@ -26,7 +26,7 @@ utt_file = open("utt2spk", "w")
 for subdir, dirs, files in os.walk(audio_dir):
     for file in files:
         filepath = subdir + os.sep + file
-        if filepath.endswith('.wav') and file.startswith('C') and file not in errors:
+        if filepath.endswith('.wav') and file.startswith('C'):
             for i in dic:
                 if i in file:
                     name = file[:-4]
@@ -37,7 +37,7 @@ for subdir, dirs, files in os.walk(audio_dir):
                     text_file.write(name + " " + word + "\n")
                     utt_file.write(name + " " + spk + "\n")
 
-        elif 'B1' in file or 'B3' in file and file not in errors:
+        elif 'B1' in file or 'B3' in file and file not:
             for i in dic:
                 if i in file:
                     name = file[:-4]
@@ -67,7 +67,7 @@ utt_file = open("utt2spk", "w")
 for subdir, dirs, files in os.walk(audio_dir):
     for file in files:
         filepath = subdir + os.sep + file
-        if filepath.endswith('.wav') and file.startswith('C') ==False and 'B2' in file and file not in errors:
+        if filepath.endswith('.wav') and file.startswith('C') ==False and 'B2' in file
             for i in dic:
                 if i in file:
                     name = file[:-4]
