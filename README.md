@@ -52,11 +52,14 @@ ln -s ../wsj/s5/utils .
 | Total  | 39.97  |
 
 
-## References
-[1] F. Xiong, J. Barker, and H. Christensen, "Phonetic Analysis of Dysarthric Speech Tempo and Applications to Robust Personalised Dysarthric Speech Recognition," in IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Brighton, UK, May 2019
-
 
 ***Things to work on***
 - Make data augmentation more flexible
 - Allow for speaker independent models
 - Write bash-based script for data prep?
+
+## References
+[1] F. Xiong, J. Barker, and H. Christensen, "Phonetic Analysis of Dysarthric Speech Tempo and Applications to Robust Personalised Dysarthric Speech Recognition," in IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Brighton, UK, May 2019
+
+
+
