@@ -14,14 +14,19 @@ The script is similar to https://github.com/ffxiong/uaspeech and uses the exact 
  - Data will need to be downloaded from http://www.isle.illinois.edu/sst/data/UASpeech/
  - Since data preparation is in python you will need some libraries which can be pip installed
    - Pandas, numpy
- - There are some emppty files from the UAspeech which needs to be deleted. I included a npy file with the names of those files and they will get deleted from the data prep stage. But if you want to keep those for some reason, make sure to modify the prepare_ua_data.py script.  
+ - There are some emppty files from the UAspeech which needs to be deleted. I included a npy file with the names of those files and they will get deleted from the data prep stage. But if you want to keep those for some reason, make sure to modify the prepare_ua_data.py script. 
+ - Make soft links or copy the 'steps' and 'utils' folders 
+ ```
+ln -s ../wsj/s5/steps .
+ln -s ../wsj/s5/utils .
+```
   
   ## Results
   - Given the stochastic nature of the tasks your results may vary.
   
   Best GMM-HMM WER in [1] --> 44.91% (with re-segmentation) <br/>
-  Best WER w/o augmentation --> %WER 40.82 [ 10085 / 24707, 0 ins, 1 del, 10084 sub ]exp/train/tri4/decode_test/wer_9_0.0 <br/>
-  Best WER with augmentation --> %WER 39.97 [ 9876 / 24707, 0 ins, 8 del, 9868 sub ]exp/train_sp/tri4/decode_test/wer_7_0.0
+  Best WER w/o augmentation --> %WER 40.82 [10085 / 24707, 0 ins, 1 del, 10084 sub] <br/>
+  Best WER with augmentation --> %WER 39.97 [9876 / 24707, 0 ins, 8 del, 9868 sub]
   
   
   ## Individual results for best model
