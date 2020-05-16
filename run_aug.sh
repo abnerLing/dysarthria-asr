@@ -13,14 +13,12 @@ decode_nj=15
 boost_sil=1.25
 cmvn_opts="--norm-means=false --norm-vars=false"    
 sp_opts="--left-context=10 --right-context=10"
-numLeavesTri1=1000
-numGaussTri1=10000
-numLeavesMLLT=1000
-numGaussMLLT=10000
+numLeaves=1000
+numGauss=10000
 numLeavesSAT=1000
 numGaussSAT=15000
 
-home_dir=/home/abner/kaldi/egs/uaspeech_github
+home_dir=/home/user/kaldi/egs/uaspeech_github	# change to your directory
 data_dir=$home_dir/data  
 feat_dir=$home_dir/mfcc
 exp_dir=$home_dir/exp
@@ -85,8 +83,6 @@ if [ $stage -le 3 ]; then
 		steps/compute_cmvn_stats.sh data/$x exp/make_mfcc/$x $mfccdir
        
 	done
- 
-
 
 fi    
 
@@ -100,17 +96,17 @@ if [ $stage -le 4 ]; then
 	
 	## Delta and delta-delta training and alignment
 	steps/train_deltas.sh --cmd "$train_cmd" --cmvn-opts "$cmvn_opts" --boost-silence $boost_sil \
-		$numLeavesTri1 $numGaussTri1 $data_dir/train_sp $lang $exp_dir/train_sp/mono_ali $exp_dir/train_sp/tri1
+		$numLeaves $numGauss $data_dir/train_sp $lang $exp_dir/train_sp/mono_ali $exp_dir/train_sp/tri1
 	steps/align_si.sh --nj $train_nj --cmd "$train_cmd" --boost-silence $boost_sil \
 		$data_dir/train_sp $lang $exp_dir/train_sp/tri1 $exp_dir/train_sp/tri1_ali
 	steps/train_deltas.sh --cmd "$train_cmd" --cmvn-opts "$cmvn_opts" --boost-silence $boost_sil \
-		$numLeavesTri1 $numGaussTri1 $data_dir/train_sp $lang $exp_dir/train_sp/tri1_ali $exp_dir/train_sp/tri2
+		$numLeaves $numGauss $data_dir/train_sp $lang $exp_dir/train_sp/tri1_ali $exp_dir/train_sp/tri2
 	steps/align_si.sh --nj $train_nj --cmd "$train_cmd" --boost-silence $boost_sil \
 		$data_dir/train_sp $lang $exp_dir/train_sp/tri2 $exp_dir/train_sp/tri2_ali
 	
 	## LDA-MLLT train/aign (Linear Discriminant Analysis – Maximum Likelihood Linear Transform)
 	steps/train_lda_mllt.sh --cmd "$train_cmd" --cmvn-opts "$cmvn_opts" --splice_opts "$sp_opts" --boost-silence $boost_sil \
-		$numLeavesMLLT $numGaussMLLT $data_dir/train_sp $lang $exp_dir/train_sp/tri2_ali $exp_dir/train_sp/tri3
+		$numLeaves $numGauss $data_dir/train_sp $lang $exp_dir/train_sp/tri2_ali $exp_dir/train_sp/tri3
 	steps/align_si.sh --nj $train_nj --cmd "$train_cmd" --boost-silence $boost_sil \
 		$data_dir/train_sp $lang $exp_dir/train_sp/tri3 $exp_dir/train_sp/tri3_ali
 	
