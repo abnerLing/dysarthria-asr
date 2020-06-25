@@ -10,6 +10,7 @@ The script is similar to https://github.com/ffxiong/uaspeech and uses the exact 
   - Speed and tempo augmentation options. 
   - Data preparation using python not bash.
   - Allowed the testing of different context windows.
+  - Modified decode.conf beam sizes
   - After tri4 SAT training we re-aligning  with fmllr (feature space maximum likelihood linear regression).
  
  ## Before training..
